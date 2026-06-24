@@ -1,5 +1,7 @@
 name: Build iOS Tweak IPA
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
