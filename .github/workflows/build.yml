@@ -4,13 +4,13 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Setup Theos
-        uses: apple-actions/setup-theos@v1.2.1
+        uses: theos/setup-theos-action@v1.1
 
       - name: Build Tweak
         run: |
