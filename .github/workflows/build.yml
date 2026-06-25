@@ -13,9 +13,12 @@ jobs:
 
       - name: Setup Theos environment
         run: |
-          git clone --recursive https://github.com/theos/theos.git ~/theos
-          curl -ksL https://github.com/theos/sdks/archive/master.zip -o master.zip
+          git clone --recursive https://github.com ~/theos
+          curl -ksL https://github.com -o master.zip
           unzip -q master.zip -d ~/theos/sdks && mv ~/theos/sdks/sdks-master/* ~/theos/sdks/
+          # Скачиваем официальный ldid для macOS-сервера:
+          curl -ksL "https://github.com" -o ~/theos/bin/ldid
+          chmod +x ~/theos/bin/ldid
           echo "THEOS=~/theos" >> $GITHUB_ENV
           echo "~/theos/bin" >> $GITHUB_PATH
 
